@@ -1,11 +1,11 @@
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CategoryService } from './../service/category.service';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
 })

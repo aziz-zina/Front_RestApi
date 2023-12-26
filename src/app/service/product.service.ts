@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Category } from '../model/category';
+import { Product } from '../model/product';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
+export class ProductService {
   apiUrl = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient) {}
 
-  public getCategories() {
-    return this.httpClient.get<Category[]>(this.apiUrl + '/categories');
+  public getProducts() {
+    return this.httpClient.get<Product[]>(this.apiUrl + '/products');
   }
 }
