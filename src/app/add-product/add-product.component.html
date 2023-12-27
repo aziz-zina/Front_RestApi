@@ -1,0 +1,227 @@
+<div class="container flex justify-center mt-10">
+  <div
+    class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700 w-[30rem]"
+  >
+    <div class="p-4 sm:p-7">
+      <div class="text-center">
+        <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">
+          Add a product
+        </h1>
+      </div>
+
+      <div class="mt-5">
+        <hr />
+        <br />
+
+        <!-- Form -->
+        <form [formGroup]="productsForm">
+          <div class="grid gap-y-4">
+            <!-- Form Group -->
+            <div>
+              <label for="email" class="block text-sm mb-2 dark:text-white"
+                >Name</label
+              >
+              <div class="relative">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  formControlName="name"
+                  class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                  required
+                  aria-describedby="email-error"
+                />
+                <div
+                  class="hidden absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3"
+                >
+                  <svg
+                    class="h-5 w-5 text-red-500"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <p class="hidden text-xs text-red-600 mt-2" id="email-error">
+                Please include a valid email address so we can get back to you
+              </p>
+            </div>
+            <!-- End Form Group -->
+
+            <!-- Form Group -->
+            <div>
+              <label for="password" class="block text-sm mb-2 dark:text-white"
+                >Quantity</label
+              >
+              <div class="relative">
+                <!-- Input Number -->
+                <!-- Input Number -->
+                <div
+                  class="bg-white border border-gray-200 rounded-lg dark:bg-slate-700 dark:border-gray-700"
+                  data-hs-input-number
+                >
+                  <div class="w-full flex justify-between items-center gap-x-1">
+                    <div class="grow py-2 px-3">
+                      <input
+                        class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 dark:text-white"
+                        type="number"
+                        value="1"
+                        pattern="[0-9]+"
+                        data-hs-input-number-input
+                      />
+                    </div>
+                    <div
+                      class="flex items-center -gap-y-px divide-x divide-gray-200 border-s border-gray-200 dark:divide-gray-700 dark:border-gray-700"
+                    >
+                      <button
+                        type="button"
+                        class="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-medium last:rounded-e-lg bg-white text-gray-800 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        data-hs-input-number-decrement
+                      >
+                        <svg
+                          class="flex-shrink-0 w-3.5 h-3.5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M5 12h14" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        class="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-medium last:rounded-e-lg bg-white text-gray-800 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        data-hs-input-number-increment
+                      >
+                        <svg
+                          class="flex-shrink-0 w-3.5 h-3.5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M5 12h14" />
+                          <path d="M12 5v14" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Input Number -->
+                <!-- End Input Number -->
+                <div
+                  class="hidden absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3"
+                >
+                  <svg
+                    class="h-5 w-5 text-red-500"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <p class="hidden text-xs text-red-600 mt-2" id="password-error">
+                8+ characters required
+              </p>
+            </div>
+            <!-- End Form Group -->
+
+            <!-- Form Group -->
+            <div>
+              <label
+                for="confirm-password"
+                class="block text-sm mb-2 dark:text-white"
+                >Price</label
+              >
+              <div class="relative">
+                <div>
+                  <div class="relative">
+                    <input
+                      type="number"
+                      id="hs-input-with-leading-and-trailing-icon"
+                      name="hs-input-with-leading-and-trailing-icon"
+                      class="py-3 px-4 ps-9 pe-16 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                      placeholder="0.00"
+                    />
+                    <div
+                      class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4"
+                    >
+                      <span class="text-gray-500">$</span>
+                    </div>
+                    <div
+                      class="absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-4"
+                    >
+                      <span class="text-gray-500">USD</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="hidden text-xs text-red-600 mt-2"
+                id="confirm-password-error"
+              >
+                Password does not match the password
+              </p>
+            </div>
+            <!-- End Form Group -->
+
+            <div>
+              <label
+                for="confirm-password"
+                class="block text-sm mb-2 dark:text-white"
+                >Category</label
+              >
+              <div class="relative">
+                <select
+                  id="hs-hidden-select"
+                  class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                >
+                  <option selected>Open this select menu</option>
+                  @for (item of categories; track $index){
+                  <option>{{ item.name }}</option>
+                  }
+                </select>
+              </div>
+              <p
+                class="hidden text-xs text-red-600 mt-2"
+                id="confirm-password-error"
+              >
+                Password does not match the password
+              </p>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            >
+              Sign up
+            </button>
+          </div>
+        </form>
+        <!-- End Form -->
+      </div>
+    </div>
+  </div>
+</div>

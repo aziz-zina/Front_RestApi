@@ -1,0 +1,8 @@
+.div {
+  text-align: left; /* Align buttons to the left */
+  margin-top: -90px; /* Add space between the buttons and the header */
+}
+
+.div button {
+  margin-right: 10px; /* Adjust the right margin between buttons */
+}

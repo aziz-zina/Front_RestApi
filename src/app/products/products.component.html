@@ -197,7 +197,18 @@
             </thead>
 
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-              @for (item of products; track $index){
+              @if(products.length === 0){
+              <tr>
+                <td
+                  class="px-6 py-3 text-sm font-medium text-gray-800 dark:text-gray-200"
+                  colspan="5"
+                  style="text-align: center"
+                >
+                  No products found.
+                </td>
+              </tr>
+              } @else { @for (item of products; track $index){
+
               <tr
                 class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800"
               >
@@ -231,8 +242,8 @@
                       <div class="grow">
                         <span
                           class="block text-sm font-semibold text-gray-800 dark:text-gray-200"
-                          >{{ item.price }}</span
-                        >
+                          >{{ item.price | number : "0.3-3" }} TDN
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -317,7 +328,7 @@
                 </td>
                 }
               </tr>
-              }
+              } }
             </tbody>
           </table>
           <!-- End Table -->
@@ -393,3 +404,24 @@
   <!-- End Card -->
 </div>
 <!-- End Table Section -->
+<div class="div max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <button
+    type="button"
+    class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none bright:hover:bg-blue-900 bright:text-blue-400 bright:focus:outline-none bright:focus:ring-1 bright:focus:ring-gray-600"
+    (click)="goToAddProduct()"
+  >
+    Add Product
+  </button>
+  <button
+    type="button"
+    class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-red-100 text-red-800 hover:bg-red-200 disabled:opacity-50 disabled:pointer-events-none bright:hover:bg-red-900 bright:text-red-500 bright:hover:text-red-400 bright:focus:outline-none bright:focus:ring-1 bright:focus:ring-gray-600"
+  >
+    Button
+  </button>
+  <button
+    type="button"
+    class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-teal-100 text-teal-800 hover:bg-teal-200 disabled:opacity-50 disabled:pointer-events-none bright:hover:bg-teal-900 bright:text-teal-500 bright:hover:text-teal-400 bright:focus:outline-none bright:focus:ring-1 bright:focus:ring-gray-600"
+  >
+    Button
+  </button>
+</div>
