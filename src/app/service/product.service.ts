@@ -13,4 +13,8 @@ export class ProductService {
   public getProducts() {
     return this.httpClient.get<Product[]>(this.apiUrl + '/products');
   }
+
+  public addProduct(product: Product) {
+    return this.httpClient.post<Product>(this.apiUrl + '/addProduct', product);
+  }
 }

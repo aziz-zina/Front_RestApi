@@ -1,24 +1,29 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterModule } from '@angular/router';
+import { Event, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
-import { ProductsComponent } from './products/products.component';
-import { CategoriesComponent } from './categories/categories.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    RouterModule,
-    NavigationComponent,
-    ProductsComponent,
-    CategoriesComponent,
-  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  imports: [CommonModule, RouterOutlet, NavigationComponent],
 })
 export class AppComponent {
-  title = 'Front_Magasin';
+  title = 'restApiFront';
+
+  date: Number = new Date().getFullYear();
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        setTimeout(() => {
+          // @ts-ignore
+          HSStaticMethods.autoInit();
+        }, 100);
+      }
+    });
+  }
 }
