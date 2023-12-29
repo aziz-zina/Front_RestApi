@@ -16,11 +16,12 @@
             >
               <div class="sm:col-span-2 md:grow">
                 <div class="flex justify-end gap-x-2">
-                  <span
-                    class="m-1 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border border-red-500 text-red-500"
+                  <a
+                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    href="/addProduct"
                   >
                     <svg
-                      class="flex-shrink-0 w-5 h-5"
+                      class="flex-shrink-0 w-4 h-4"
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
@@ -31,26 +32,11 @@
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     >
-                      <path
-                        d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                      />
-                      <polyline points="9 22 9 12 15 12 15 22" />
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
                     </svg>
-                  </span>
-                  <button
-                    type="button"
-                    class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none bright:hover:bg-blue-900 bright:text-blue-400 bright:focus:outline-none bright:focus:ring-1 bright:focus:ring-gray-600"
-                    (click)="goToAddProduct()"
-                  >
-                    Add Product
-                  </button>
-
-                  <button
-                    type="button"
-                    class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-teal-100 text-teal-800 hover:bg-teal-200 disabled:opacity-50 disabled:pointer-events-none bright:hover:bg-teal-900 bright:text-teal-500 bright:hover:text-teal-400 bright:focus:outline-none bright:focus:ring-1 bright:focus:ring-gray-600"
-                  >
-                    Button
-                  </button>
+                    Create
+                  </a>
                 </div>
               </div>
             </div>

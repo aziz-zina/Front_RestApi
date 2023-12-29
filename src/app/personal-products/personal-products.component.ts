@@ -30,10 +30,10 @@ export class PersonalProductsComponent implements OnInit {
       console.log(data);
       this.selectedCategory = data;
       this.productService.getProductsByCategory(data).subscribe((value) => {
-        console.log('sexy');
         console.log(data);
         this.products = value;
         this.count = this.products.length;
+        console.log(this.products[0].category.name);
       });
     });
   }

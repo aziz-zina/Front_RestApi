@@ -1,3 +1,4 @@
+@if(categories.length > 0){
 <div class="flex justify-evenly gap-10 m-10">
   <div class="max-w-[300px]">
     @for(item of categories; track $index){
@@ -15,7 +16,7 @@
       class="max-h-[500px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 cursor-default"
     >
       <div
-        class="p-4 mb-2 rounded-md text-left col-span-1 text-white cursor-pointer -mt-14 cursor-default"
+        class="p-4 mb-2 rounded-md text-left col-span-1 text-white -mt-14 cursor-default"
       >
         <app-personal-products></app-personal-products>
       </div>
@@ -23,3 +24,12 @@
   </div>
   }
 </div>
+
+} @else {
+<div class="flex items-center justify-center mt-60">
+  <div class="text-4xl font-bold text-gray-800 dark:text-white">
+    No categories
+  </div>
+</div>
+
+}
