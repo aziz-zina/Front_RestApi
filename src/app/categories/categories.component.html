@@ -1,29 +1,25 @@
-<!-- Card Section -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-  <!-- Grid -->
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
-    <!-- Card -->
-    @for (item of categories; track $index){
+<div class="flex justify-evenly gap-10 m-10">
+  <div class="max-w-[300px]">
+    @for(item of categories; track $index){
     <div
-      class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+      class="dark:bg-gray-800 p-4 mb-2 rounded-md text-center col-span-1 text-white cursor-pointer w-52"
+      (click)="selectedCategoryFunction(item.id_category)"
     >
-      <div class="p-4 md:p-5">
-        <div
-          class="flex justify-between items-center"
-          style="text-align: center"
-        >
-          <h3
-            class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200"
-            style="text-align: center"
-          >
-            {{ item.name }}
-          </h3>
-        </div>
-      </div>
+      {{ item.name }}
     </div>
     }
-    <!-- End Card -->
   </div>
-  <!-- End Grid -->
+  @if(display){
+  <div class="w-full h-full cursor-default">
+    <div
+      class="max-h-[500px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 cursor-default"
+    >
+      <div
+        class="p-4 mb-2 rounded-md text-left col-span-1 text-white cursor-pointer -mt-14 cursor-default"
+      >
+        <app-personal-products></app-personal-products>
+      </div>
+    </div>
+  </div>
+  }
 </div>
-<!-- End Card Section -->

@@ -17,4 +17,10 @@ export class ProductService {
   public addProduct(product: Product) {
     return this.httpClient.post<Product>(this.apiUrl + '/addProduct', product);
   }
+
+  public getProductsByCategory(id: any) {
+    return this.httpClient.get<Product[]>(
+      this.apiUrl + '/getProductsByCategoy/' + id
+    );
+  }
 }

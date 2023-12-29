@@ -50,11 +50,18 @@ export class AddProductComponent implements OnInit {
           id_category: this.productsForm.value.category,
         },
       };
-      this.productService.addProduct(payload).subscribe((data) => {
-        console.log(data);
-        this.toast.success('Product added successfully!');
-        this.router.navigate(['/products']);
-      });
+      console.log(payload);
+      this.productService.addProduct(payload).subscribe(
+        (data) => {
+          console.log(data);
+          this.toast.success('Product added successfully!');
+          this.router.navigate(['/products']);
+        },
+        (error) => {
+          console.log(error);
+          this.toast.error('An error has occured! ' + error.name);
+        }
+      );
     }
   }
 

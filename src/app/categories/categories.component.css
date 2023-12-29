@@ -1,0 +1,11 @@
+.categories-container {
+  max-width: 300px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.category-item {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  margin: 0;
+}
