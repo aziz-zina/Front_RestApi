@@ -1,14 +1,14 @@
 @if(categories.length > 0){
 <div class="flex justify-evenly gap-10 m-10">
   <div class="max-w-[300px]">
-    @for(item of categories; track $index){
+    @for(item of categories; track $index){ @if(item.id_category){
     <div
       class="dark:bg-gray-800 p-4 mb-2 rounded-md text-center col-span-1 text-white cursor-pointer w-52"
       (click)="selectedCategoryFunction(item.id_category)"
     >
       {{ item.name }}
     </div>
-    }
+    } }
     <a
       class="dark:bg-gray-500 p-4 mb-2 rounded-md text-center col-span-1 text-white cursor-pointer w-52 flex items-center"
       href="/addCategory"
