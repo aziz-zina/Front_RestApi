@@ -13,4 +13,8 @@ export class CategoryService {
   public getCategories() {
     return this.httpClient.get<Category[]>(this.apiUrl + '/categories');
   }
+
+  public addCategory(category: Category) {
+    return this.httpClient.post(this.apiUrl + '/addCategory', category);
+  }
 }

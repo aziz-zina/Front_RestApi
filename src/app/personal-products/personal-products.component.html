@@ -126,16 +126,41 @@
                     }}</span>
                   </div>
                 </td>
-                <td class="h-px w-auto whitespace-nowrap">
-                  <div class="px-6 py-2">
-                    <span class="text-sm text-gray-800 dark:text-gray-200"
-                      ><button
+                <td class="h-px w-px whitespace-nowrap align-top">
+                  <div class="block p-6 flex items-center gap-x-4">
+                    <div class="hs-tooltip inline-block [--trigger:hover]">
+                      <button
                         type="button"
-                        class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-red-100 text-red-800 hover:bg-red-200 disabled:opacity-50 disabled:pointer-events-none bright:hover:bg-red-900 bright:text-red-500 bright:hover:text-red-400 bright:focus:outline-none bright:focus:ring-1 bright:focus:ring-gray-600"
+                        class="hs-tooltip-toggle flex justify-center items-center h-10 w-10 text-sm font-semibold rounded-lg border border-gray-200 bg-red-500 text-red-800 shadow-sm hover:bg-red-50 disabled:pointer-events-none bright:bg-slate-900 dark:border-red-700 bright:text-white dark:hover:bg-red-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       >
-                        Delete
-                      </button></span
-                    >
+                        <a href="/addProduct">
+                          <img src="../../assets/trash-2.svg" alt="" />
+                        </a>
+                        <span
+                          class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-3 px-4 bg-white border text-sm text-gray-600 rounded-lg shadow-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400"
+                          role="tooltip"
+                        >
+                          Delete Product
+                        </span>
+                      </button>
+                    </div>
+
+                    <div class="hs-tooltip inline-block [--trigger:hover]">
+                      <button
+                        type="button"
+                        class="hs-tooltip-toggle flex justify-center items-center h-10 w-10 text-sm font-semibold rounded-lg border border-gray-200 bg-yellow-500 text-yellow-800 shadow-sm hover:bg-red-50 disabled:pointer-events-none bright:bg-slate-900 dark:border-yellow-700 bright:text-white dark:hover:bg-yellow-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      >
+                        <a href="/addProduct">
+                          <img src="../../assets/edit.svg" alt="" />
+                        </a>
+                        <span
+                          class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-3 px-4 bg-white border text-sm text-gray-600 rounded-lg shadow-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400"
+                          role="tooltip"
+                        >
+                          Edit Product
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </td>
               </tr>

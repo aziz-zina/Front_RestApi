@@ -1,0 +1,59 @@
+<div
+  class="max-h-[530px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 mt-12"
+>
+  <!-- Hero -->
+  <div class="relative overflow-hidden">
+    <div
+      class="mx-auto max-w-screen-md py-12 px-4 sm:px-6 md:max-w-screen-xl md:py-20 lg:py-32 md:px-8"
+    >
+      <div class="md:pe-8 md:w-1/2 xl:pe-0 xl:w-5/12">
+        <!-- Title -->
+        <h1
+          class="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight bright:text-gray-200"
+        >
+          Add a
+          <span class="text-blue-600 dark:text-blue-500">Category</span>
+        </h1>
+        <!-- End Title -->
+
+        <br />
+        <hr class="border-gray-500 border-2" />
+        <br />
+
+        <!-- Form -->
+        <form [formGroup]="categoriesForm" (ngSubmit)="addProduct()">
+          <div class="mb-4">
+            <label
+              for="hs-hero-name-2"
+              class="block text-sm font-medium dark:text-white"
+              ><span class="sr-only">Category name:</span></label
+            >
+            <input
+              type="text"
+              id="hs-hero-name-2"
+              class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+              placeholder="Category name"
+              formControlName="name"
+            />
+          </div>
+
+          <div class="grid">
+            <button
+              type="submit"
+              class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            >
+              ADD
+            </button>
+          </div>
+        </form>
+        <!-- End Form -->
+      </div>
+    </div>
+
+    <div
+      class="hidden md:block md:absolute md:top-0 md:start-1/2 md:end-0 h-full bg-[url('https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1981&q=80')] bg-no-repeat bg-center bg-cover"
+    ></div>
+    <!-- End Col -->
+  </div>
+  <!-- End Hero -->
+</div>
