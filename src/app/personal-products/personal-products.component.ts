@@ -1,5 +1,6 @@
+import { HotToastService } from '@ngneat/hot-toast';
 import { ProductService } from './../service/product.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../model/product';
 import { DataTransportService } from '../service/data-transport.service';
@@ -17,6 +18,7 @@ export class PersonalProductsComponent implements OnInit {
   selectedCategory: number | undefined;
   private unsubscribe = new Subject<void>();
   count = 0;
+  private toast = inject(HotToastService);
 
   constructor(
     private router: Router,
@@ -32,6 +34,9 @@ export class PersonalProductsComponent implements OnInit {
       this.productService.getProductsByCategory(data).subscribe((value) => {
         console.log(data);
         this.products = value;
+        if (this.products.length == 0) {
+          this.toast.warning('This category has no products!');
+        }
         this.count = this.products.length;
         console.log(this.products[0].category.name);
       });
