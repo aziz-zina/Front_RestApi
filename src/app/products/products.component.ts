@@ -4,6 +4,8 @@ import { Product } from '../model/product';
 import { ProductService } from '../service/product.service';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { DataTransportService } from '../service/data-transport.service';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-products',
@@ -18,7 +20,11 @@ export class ProductsComponent implements OnInit {
   selectedProductName: string = '';
   private toast = inject(HotToastService);
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private dataTransport: DataTransportService
+  ) {}
 
   goToAddProduct() {
     this.router.navigate(['/addProduct']);
@@ -46,7 +52,9 @@ export class ProductsComponent implements OnInit {
   }
 
   goToEdit(item: Product) {
-    this.router.navigate(['/updateProduct'], { state: { data: item } });
+    console.log(item);
+    this.dataTransport.setProduct(item);
+    this.router.navigate(['/updateProduct']);
   }
 
   ngOnInit(): void {

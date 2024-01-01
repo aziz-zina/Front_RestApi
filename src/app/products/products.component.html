@@ -266,14 +266,14 @@
                         <button
                           type="button"
                           class="hs-tooltip-toggle flex justify-center items-center h-10 w-10 text-sm font-semibold rounded-lg border border-gray-200 bg-yellow-500 text-yellow-800 shadow-sm hover:bg-red-50 disabled:pointer-events-none bright:bg-slate-900 dark:border-yellow-700 bright:text-white dark:hover:bg-yellow-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                          (click)="goToEdit(item)"
                         >
-                          <a href="/addProduct">
+                          <a>
                             <img src="../../assets/edit.svg" alt="" />
                           </a>
                           <span
                             class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-3 px-4 bg-white border text-sm text-gray-600 rounded-lg shadow-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400"
                             role="tooltip"
-                            (click)="goToEdit(item)"
                           >
                             Edit Product
                           </span>

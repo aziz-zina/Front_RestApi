@@ -27,4 +27,11 @@ export class ProductService {
   public deleteProduct(id: number) {
     return this.httpClient.delete(this.apiUrl + '/deleteProduct/' + id);
   }
+
+  public updateProduct(product: Product) {
+    return this.httpClient.put<Product>(
+      this.apiUrl + '/updateProduct',
+      product
+    );
+  }
 }
