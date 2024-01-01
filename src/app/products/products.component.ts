@@ -45,6 +45,10 @@ export class ProductsComponent implements OnInit {
     );
   }
 
+  goToEdit(item: Product) {
+    this.router.navigate(['/updateProduct'], { state: { data: item } });
+  }
+
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data) => {
       console.log(data);
