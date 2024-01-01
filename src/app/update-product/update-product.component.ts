@@ -29,8 +29,6 @@ export class UpdateProductComponent implements OnInit {
   data: any;
 
   ngOnInit(): void {
-    if (this.router.getCurrentNavigation() && this.router.getCurrentNavigation().extras.state) {
-      this.data = this.router.getCurrentNavigation().extras.state['data'];
-    }
+    this.data = this.router.getCurrentNavigation()?.extras.state?['data']:;
   }
 }
