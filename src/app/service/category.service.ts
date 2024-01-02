@@ -17,4 +17,15 @@ export class CategoryService {
   public addCategory(category: Category) {
     return this.httpClient.post(this.apiUrl + '/addCategory', category);
   }
+
+  public updateCategory(category: Category) {
+    return this.httpClient.put<Category>(
+      this.apiUrl + '/updateCategory',
+      category
+    );
+  }
+
+  public deleteCategory(id: number) {
+    return this.httpClient.delete(this.apiUrl + '/deleteCategory/' + id);
+  }
 }

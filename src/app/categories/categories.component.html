@@ -1,37 +1,78 @@
 @if(categories.length > 0){
-<div class="flex justify-evenly gap-10 m-10">
-  <div class="max-w-[300px]">
-    @for(item of categories; track $index){ @if(item.id_category){
-    <div
-      class="dark:bg-gray-800 p-4 mb-2 rounded-md text-center col-span-1 text-white cursor-pointer w-52"
-      (click)="selectedCategoryFunction(item.id_category)"
-    >
-      {{ item.name }}
-    </div>
-    } }
-    <a
-      class="dark:bg-gray-500 p-4 mb-2 rounded-md text-center col-span-1 text-white cursor-pointer w-52 flex items-center"
-      href="/addCategory"
-    >
-      <img class="ml-2" src="../../assets/plus-circle.svg" alt="" />
-      <p class="flex-1">ADD CATEGORY</p>
-    </a>
-  </div>
-  @if(display){
-  <div class="w-full h-full cursor-default">
-    <div
-      class="max-h-[500px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 cursor-default"
-    >
+<div
+  class="max-h-[530px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 mt-12"
+>
+  <div class="flex justify-evenly gap-10 m-10">
+    <div class="max-w-[300px]">
+      @for(item of categories; track $index){ @if(item.id_category){
       <div
-        class="p-4 mb-2 rounded-md text-left col-span-1 text-white -mt-14 cursor-default"
+        class="dark:bg-gray-800 p-4 mb-2 rounded-md text-center col-span-1 text-white cursor-pointer w-72 flex justify-between items-center"
+        (click)="selectedCategoryFunction(item.id_category)"
       >
-        <app-personal-products></app-personal-products>
+        <span class="text-left">{{ item.name }}</span>
+        <div class="flex">
+          <div class="hs-tooltip inline-block [--trigger:hover]">
+            <button
+              type="button"
+              class="hs-tooltip-toggle flex justify-center items-center h-10 w-10 text-sm font-semibold rounded-lg border border-gray-200 bg-red-500 text-red-800 shadow-sm hover:bg-red-50 disabled:pointer-events-none bright:bg-slate-900 dark:border-red-700 bright:text-white dark:hover:bg-red-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              data-hs-overlay="#hs-basic-modal"
+            >
+              <a>
+                <img src="../../assets/trash-2.svg" alt="" />
+              </a>
+              <span
+                class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-3 px-4 bg-white border text-sm text-gray-600 rounded-lg shadow-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400"
+                role="tooltip"
+              >
+                Delete Category
+              </span>
+            </button>
+          </div>
+
+          <div class="hs-tooltip inline-block [--trigger:hover] ml-2">
+            <button
+              type="button"
+              class="hs-tooltip-toggle flex justify-center items-center h-10 w-10 text-sm font-semibold rounded-lg border border-gray-200 bg-yellow-500 text-yellow-800 shadow-sm hover:bg-red-50 disabled:pointer-events-none bright:bg-slate-900 dark:border-yellow-700 bright:text-white dark:hover:bg-yellow-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              data-hs-overlay="#hs-focus-management-modal"
+              (click)="editCategory1(item)"
+            >
+              <a>
+                <img src="../../assets/edit.svg" alt="" />
+              </a>
+              <span
+                class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-3 px-4 bg-white border text-sm text-gray-600 rounded-lg shadow-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400"
+                role="tooltip"
+              >
+                Edit Category
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      } }
+      <a
+        class="dark:bg-gray-500 p-4 mb-2 rounded-md text-center col-span-1 text-white cursor-pointer w-72 flex items-center"
+        href="/addCategory"
+      >
+        <img class="ml-2" src="../../assets/plus-circle.svg" alt="" />
+        <p class="flex-1">ADD CATEGORY</p>
+      </a>
+    </div>
+    @if(display){
+    <div class="w-full h-full cursor-default">
+      <div
+        class="max-h-[500px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 cursor-default"
+      >
+        <div
+          class="p-4 mb-2 rounded-md text-left col-span-1 text-white -mt-14 cursor-default"
+        >
+          <app-personal-products></app-personal-products>
+        </div>
       </div>
     </div>
+    }
   </div>
-  }
 </div>
-
 } @else {
 <div class="flex items-center justify-center mt-60">
   <div class="text-4xl font-bold text-gray-800 dark:text-white">
@@ -40,3 +81,77 @@
 </div>
 
 }
+
+<div
+  id="hs-focus-management-modal"
+  class="hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none"
+>
+  <div
+    class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto"
+  >
+    <div
+      class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]"
+    >
+      <div
+        class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700"
+      >
+        <h3 class="font-bold text-gray-800 dark:text-white">Modal title</h3>
+        <button
+          type="button"
+          class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          data-hs-overlay="#hs-focus-management-modal"
+        >
+          <span class="sr-only">Close</span>
+          <svg
+            class="flex-shrink-0 w-4 h-4"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+      <form [formGroup]="categoryForm" (submit)="editCategory2()">
+        <div class="p-4 overflow-y-auto">
+          <label
+            for="input-label"
+            class="block text-sm font-medium mb-2 dark:text-white"
+            >Category name:</label
+          >
+          <input
+            type="text"
+            formControlName="name"
+            class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+            placeholder="Write the category name here"
+          />
+        </div>
+        <div
+          class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700"
+        >
+          <button
+            type="button"
+            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            data-hs-overlay="#hs-focus-management-modal"
+          >
+            Close
+          </button>
+          <button
+            type="submit"
+            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            data-hs-overlay="#hs-focus-management-modal"
+          >
+            Save changes
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
