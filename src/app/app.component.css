@@ -1,4 +1,8 @@
 .cont{
   /*background-color: #F5EFED;*/
-  background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+  /*background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);*/
+  background-image: url("../assets/cool-background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
