@@ -15,7 +15,7 @@ import { HotToastService } from '@ngneat/hot-toast';
 })
 export class CategoriesComponent {
   categories: Category[] = [];
-  selectedCategoryId: number | undefined;
+  selectedCategoryId: number;
   display: boolean = false;
   selectedCategory: Category | undefined;
   selectedCategoryName: string = '';
@@ -71,6 +71,29 @@ export class CategoriesComponent {
         }
       );
     }
+  }
+
+  deleteCategory(category: Category) {
+    console.log(category);
+    this.selectedCategory = category;
+    this.selectedCategoryName = category.name;
+    this.selectedCategoryId = category.id_category ?? 0;
+    console.log(this.selectedCategory);
+  }
+
+  deleteCategory2() {
+    this.categoryService.deleteCategory(this.selectedCategoryId).subscribe(
+      (data) => {
+        this.toast.success('Category deleted successfully!');
+        this.categoryService.getCategories().subscribe((data) => {
+          console.log(data);
+          this.categories = data;
+        });
+      },
+      (error) => {
+        this.toast.error('An error has occured! ' + error.name);
+      }
+    );
   }
 
   ngOnInit(): void {
